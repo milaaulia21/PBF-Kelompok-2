@@ -30,7 +30,7 @@ Docker Compose adalah alat bantu Docker untuk menjalankan banyak container sekal
 Digunakan untuk mengunduh kode dari Github dan melakukan kolaborasi antar anggota tim dalam proyek. 
 Download di sini : https://git-scm.com/downloads
 
-##### Verifikasi Instalasi
+#### Verifikasi Instalasi
 Untuk memastikan semuanya sudah terpasang dengan benar, jalankan perintah ini di terminal/command prompt :
 docker --version
 docker-compose --version
