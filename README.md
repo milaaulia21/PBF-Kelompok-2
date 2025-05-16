@@ -153,7 +153,7 @@ Dockerfile adalah kumpulan perintah yang memberi tahu Docker cara membangun sebu
 
 ##### Dockerfile.frontend
 Untuk membangun container frontend (Laravel + React).
-
+```
 # Stage 1: Build React
 FROM node:18 as build
 WORKDIR /app
@@ -208,11 +208,11 @@ RUN chown -R www-data:www-data /var/www/writable
 
 EXPOSE 8080
 CMD ["php", "spark", "serve", "--host=0.0.0.0", "--port=8080"]
-
+```
 
 #### File nginx.conf
 File ini adalah konfigurasi utnuk Nginx, yaitu web server yang digunakan sebagai reverse proxy. Artinya, Nginx menerima permintaan dari browser, lalu meneruskannya ke container frontend atau backend sesuai alamat URL-nya.
-
+```
 worker_processes 1;
 
 events {
@@ -238,6 +238,6 @@ http {
         }
     }
 }
-
+```
 
 
