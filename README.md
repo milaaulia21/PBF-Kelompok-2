@@ -76,78 +76,7 @@ Masing-masing repository berdiri sendiri, namun saling terhubung melalui file do
 Sebagian bagian dari manajemen proyek, setiap komponen (backend dan frontend) ditempatkan dalam repository GitHub yang terpisah, agar bisa dikelola dan dikembangkan secara modular oleh tim masing-masing.
 
 #### File .env
-File .env digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. 
-```
-APP_NAME=Laravel
-APP_ENV=local
-APP_KEY=base64:U6otiFduLH/NuSiQc2lkii/ObEXwlg3IKvEklW1osb4=
-APP_DEBUG=true
-APP_TIMEZONE=UTC
-APP_URL=http://localhost:9700
-ASSET_URL=http://localhost:5173
-VITE_DEV_SERVER=true
-
-APP_LOCALE=en
-APP_FALLBACK_LOCALE=en
-APP_FAKER_LOCALE=en_US
-
-APP_MAINTENANCE_DRIVER=file
-APP_MAINTENANCE_STORE=database
-
-PHP_CLI_SERVER_WORKERS=4
-
-BCRYPT_ROUNDS=12
-
-LOG_CHANNEL=stack
-LOG_STACK=single
-LOG_DEPRECATIONS_CHANNEL=null
-LOG_LEVEL=debug
-
-DB_CONNECTION=sqlite
-DB_HOST=pbf-mysql-1
-DB_PORT=3306
-DB_DATABASE=db_sidangskripsi
-DB_USERNAME=user
-DB_PASSWORD=secret
-
-SESSION_DRIVER=database
-SESSION_LIFETIME=120
-SESSION_ENCRYPT=false
-SESSION_PATH=/
-SESSION_DOMAIN=null
-
-BROADCAST_CONNECTION=log
-FILESYSTEM_DISK=local
-QUEUE_CONNECTION=database
-
-CACHE_STORE=database
-CACHE_PREFIX=
-
-MEMCACHED_HOST=127.0.0.1
-
-REDIS_CLIENT=phpredis
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-
-MAIL_MAILER=log
-MAIL_SCHEME=null
-MAIL_HOST=127.0.0.1
-MAIL_PORT=2525
-MAIL_USERNAME=null
-MAIL_PASSWORD=null
-MAIL_FROM_ADDRESS="hello@example.com"
-MAIL_FROM_NAME="${APP_NAME}"
-
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_DEFAULT_REGION=us-east-1
-AWS_BUCKET=
-AWS_USE_PATH_STYLE_ENDPOINT=false
-
-VITE_APP_NAME="${APP_NAME}"
-VITE_APP_URL=""
-```
+File .env digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
 
 #### Dockerfile 
 Dockerfile adalah kumpulan perintah yang memberi tahu Docker cara membangun sebuah image. Setelah dibuild, image itu bisa dipakai buat menjalankan container. 
