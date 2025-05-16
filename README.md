@@ -76,6 +76,7 @@ Sebagian bagian dari manajemen proyek, setiap komponen (backend dan frontend) di
 
 #### File .env
 File .env digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. 
+```
 APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:U6otiFduLH/NuSiQc2lkii/ObEXwlg3IKvEklW1osb4=
@@ -145,7 +146,7 @@ AWS_USE_PATH_STYLE_ENDPOINT=false
 
 VITE_APP_NAME="${APP_NAME}"
 VITE_APP_URL=""
-
+```
 
 #### Dockerfile 
 Dockerfile adalah kumpulan perintah yang memberi tahu Docker cara membangun sebuah image. Setelah dibuild, image itu bisa dipakai buat menjalankan container. 
