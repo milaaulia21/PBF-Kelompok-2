@@ -32,10 +32,11 @@ Download di sini : https://git-scm.com/downloads
 
 #### Verifikasi Instalasi
 Untuk memastikan semuanya sudah terpasang dengan benar, jalankan perintah ini di terminal/command prompt :
+```
 docker --version
 docker-compose --version
 git --version
-
+```
 Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya. 
 
 ## Langkah 2 : Menyiapkan Tools Manajemen Proyek
