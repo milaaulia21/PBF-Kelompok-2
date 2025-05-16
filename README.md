@@ -141,7 +141,7 @@ CMD ["php", "spark", "serve", "--host=0.0.0.0", "--port=8080"]
 ```
 
 #### File nginx.conf
-File ini adalah konfigurasi utnuk Nginx, yaitu web server yang digunakan sebagai reverse proxy. Artinya, Nginx menerima permintaan dari browser, lalu meneruskannya ke container frontend atau backend sesuai alamat URL-nya.
+File ini adalah konfigurasi untuk Nginx, yaitu web server yang digunakan sebagai reverse proxy. Artinya, Nginx menerima permintaan dari browser, lalu meneruskannya ke container frontend atau backend sesuai alamat URL-nya.
 ```
 worker_processes 1;
 
