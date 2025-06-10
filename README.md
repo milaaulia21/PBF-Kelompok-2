@@ -56,6 +56,7 @@ Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya.
 ├── docker-compose.yml
 └── README.md
 ```
+### Penjelasan :
 
 ### 📁 backend/
 Berisi kode sumber dari backend (dalam hal ini menggunakan CodeIgniter 4).
@@ -74,6 +75,10 @@ Digunakan untuk membuat image Docker frontend. Umumnya berisi perintah menginsta
 
 - .env
 File konfigurasi environment untuk frontend, seperti konfigurasi port, URL backend API, dan sebagainya.
+
+
+### 💾 File `.env`
+File `.env` digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env tidak disimpan di GitHub karena berisi data sensitif (seperti kredensial database). File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
 
 ### 📁 mysql-init/
 Berisi file inisialisasi awal database untuk container MySQL.
@@ -157,6 +162,3 @@ Gunakan `CTRL + C` di terminal, lalu jalankan:
 ```
 docker compose down
 ```
-
-### 💾 File `.env`
-File `.env` digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env tidak disimpan di GitHub karena berisi data sensitif (seperti kredensial database). File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
