@@ -57,6 +57,39 @@ Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya.
 └── README.md
 ```
 
+### 📁 backend/
+Berisi kode sumber dari backend (dalam hal ini menggunakan CodeIgniter 4).
+
+- Dockerfile
+Digunakan untuk membuat image Docker backend. Biasanya berisi instruksi untuk menginstal PHP, dependensi CodeIgniter, dan menjalankan server.
+
+- .env
+File konfigurasi environment khusus untuk backend. Bisa berisi variabel seperti base URL, database host, username, dan password.
+
+### 📁 frontend/
+Berisi kode sumber dari frontend (dalam hal ini menggunakan Laravel + React via Inertia.js).
+
+- Dockerfile
+Digunakan untuk membuat image Docker frontend. Umumnya berisi perintah menginstal Laravel, NPM, dan menjalankan dev server.
+
+- .env
+File konfigurasi environment untuk frontend, seperti konfigurasi port, URL backend API, dan sebagainya.
+
+### 📁 mysql-init/
+Berisi file inisialisasi awal database untuk container MySQL.
+
+- db_sidangskripsi.sql
+File SQL yang akan dijalankan secara otomatis saat container MySQL pertama kali dibuat. Biasanya berisi perintah CREATE DATABASE, CREATE TABLE, dan data awal jika diperlukan.
+
+### 📁 nginx/
+Berisi konfigurasi server NGINX yang berfungsi sebagai reverse proxy.
+
+- nginx.conf
+File konfigurasi NGINX. Digunakan untuk meneruskan permintaan ke frontend dan backend, serta mengatur routing dan port.
+
+### 📄 docker-compose.yml
+File utama untuk mengatur dan menjalankan seluruh layanan dalam proyek ini (frontend, backend, nginx, dan MySQL) menggunakan Docker Compose. File ini menyatukan semua Dockerfile dan konfigurasi menjadi satu sistem multi-container yang saling terhubung.
+
 ### Clone Repositori
 Clone kedua repositori proyek:
 ```
