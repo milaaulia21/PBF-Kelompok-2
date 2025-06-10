@@ -37,6 +37,26 @@ Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya.
 
 
 ### Struktur Proyek
+
+.
+├── backend/
+│   ├── Dockerfile
+│   └── .env
+│
+├── frontend/
+│   ├── Dockerfile
+│   └── .env
+│
+├── mysql-init/
+│   └── db_sidangskripsi.sql
+│
+├── nginx/
+│   └── nginx.conf
+│
+├── docker-compose.yml
+└── README.md
+
+
 ### Clone Repositori
 Clone kedua repositori proyek:
 ```
