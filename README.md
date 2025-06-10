@@ -6,7 +6,7 @@
 #### 
 Proyek ini berfokus pada penerapan prinsip DevOps dalam membangun Sistem Penjadwalan Sidang Skripsi Otomatis berbasis web. DevOps (Development and Operations) adalah pendekatan kolaboratif yang menggabungkan pengembangan perangkat lunak (Dev) dan operasional sistem (Ops) untuk menciptakan proses pengembangan yang lebih cepat, stabil, dan terotomatisasi.
 
-Dalam proyek ini, seluruh komponen sistem dikemas menggunakan Docker dan dikoordinasikan melalui Docker Compose, sehingga proses instalasi dan deployment dapat dilakukan secara otomatis dan konsisten, hanya dengan satu perintah: docker compose up.
+Dalam proyek ini, seluruh komponen sistem dikemas menggunakan Docker dan dikoordinasikan melalui Docker Compose, sehingga proses instalasi dan deployment dapat dilakukan secara otomatis dan konsisten, hanya dengan satu perintah: `docker compose up`.
 
 ## 🔧 Langkah 1 : Persiapan Awal
 
@@ -56,6 +56,44 @@ Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya.
 ├── docker-compose.yml
 └── README.md
 ```
+### Penjelasan :
+
+### 📁 backend/
+Berisi kode sumber dari backend (dalam hal ini menggunakan CodeIgniter 4).
+
+- Dockerfile
+Digunakan untuk membuat image Docker backend. Biasanya berisi instruksi untuk menginstal PHP, dependensi CodeIgniter, dan menjalankan server.
+
+- .env
+File konfigurasi environment khusus untuk backend. Bisa berisi variabel seperti base URL, database host, username, dan password.
+
+### 📁 frontend/
+Berisi kode sumber dari frontend (dalam hal ini menggunakan Laravel + React via Inertia.js).
+
+- Dockerfile
+Digunakan untuk membuat image Docker frontend. Umumnya berisi perintah menginstal Laravel, NPM, dan menjalankan dev server.
+
+- .env
+File konfigurasi environment untuk frontend, seperti konfigurasi port, URL backend API, dan sebagainya.
+
+
+### 💾 File `.env`
+File `.env` digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env tidak disimpan di GitHub karena berisi data sensitif (seperti kredensial database). File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
+
+### 📁 mysql-init/
+Berisi file inisialisasi awal database untuk container MySQL.
+
+- db_sidangskripsi.sql
+File SQL yang akan dijalankan secara otomatis saat container MySQL pertama kali dibuat. Biasanya berisi perintah CREATE DATABASE, CREATE TABLE, dan data awal jika diperlukan.
+
+### 📁 nginx/
+Berisi konfigurasi server NGINX yang berfungsi sebagai reverse proxy.
+
+- nginx.conf
+File konfigurasi NGINX. Digunakan untuk meneruskan permintaan ke frontend dan backend, serta mengatur routing dan port.
+
+### 📄 docker-compose.yml
+File utama untuk mengatur dan menjalankan seluruh layanan dalam proyek ini (frontend, backend, nginx, dan MySQL) menggunakan Docker Compose. File ini menyatukan semua Dockerfile dan konfigurasi menjadi satu sistem multi-container yang saling terhubung.
 
 ### Clone Repositori
 Clone kedua repositori proyek:
@@ -110,6 +148,11 @@ Proses build pertama kali akan memakan waktu beberapa menit tergantung kecepatan
 ## 🌐 Langkah 4: Akses Aplikasi
 
 Jika semua container berhasil berjalan, buka browser dan akses:
+- Frontend: `http://localhost:9700`
+Menampilkan antarmuka pengguna (React + Laravel Inertia)
+
+- Backend API: `http://localhost:8080`
+Menyediakan endpoint API berbasis CodeIgniter 4
 
 ## 📌 Tips Tambahan
 
@@ -119,6 +162,3 @@ Gunakan `CTRL + C` di terminal, lalu jalankan:
 ```
 docker compose down
 ```
-
-### 💾 File `.env`
-File `.env` digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env tidak disimpan di GitHub karena berisi data sensitif (seperti kredensial database). File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
