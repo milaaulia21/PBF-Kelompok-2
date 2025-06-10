@@ -1,6 +1,13 @@
 # Pemrograman Berbasis Framework - Kelompok 2
 # DevOps & Deployment Engineer
 
+
+⚙️ Deskripsi Proyek
+
+Proyek ini berfokus pada penerapan prinsip DevOps dalam membangun Sistem Penjadwalan Sidang Skripsi Otomatis berbasis web. DevOps (Development and Operations) adalah pendekatan kolaboratif yang menggabungkan pengembangan perangkat lunak (Dev) dan operasional sistem (Ops) untuk menciptakan proses pengembangan yang lebih cepat, stabil, dan terotomatisasi.
+
+Dalam proyek ini, seluruh komponen sistem dikemas menggunakan Docker dan dikoordinasikan melalui Docker Compose, sehingga proses instalasi dan deployment dapat dilakukan secara otomatis dan konsisten, hanya dengan satu perintah: docker compose up.
+
 ## Deskripsi Proyek
 
 #### 
