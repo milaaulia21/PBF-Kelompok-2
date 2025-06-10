@@ -41,6 +41,8 @@ Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya.
 Clone kedua repositori proyek:
 ```
 git clone https://github.com/milaaulia21/PBF_Backend.git
+```
+```
 git clone https://github.com/milaaulia21/PBF_Frontend.git
 ```
 Keterangan:
