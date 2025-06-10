@@ -8,7 +8,11 @@ Proyek ini berfokus pada penerapan prinsip DevOps dalam membangun Sistem Penjadw
 
 Dalam proyek ini, seluruh komponen sistem dikemas menggunakan Docker dan dikoordinasikan melalui Docker Compose, sehingga proses instalasi dan deployment dapat dilakukan secara otomatis dan konsisten, hanya dengan satu perintah: docker compose up.
 
-### Tools yang Wajib Di-install:
+## 🔧 Langkah 1 : Persiapan Awal
+
+### Alat yang Wajib Di-install:
+Sebelum menjalankan sistem, pastikan alat-alat berikut sudah terpasang di komputer/laptop:
+
 #### 1. Docker
 Docker adalah alat untuk membuat dan menjalankan aplikasi di dalam "wadah" (container). Dengan Docker, kita bisa menjalankan backend, frontend, dan database tanpa menginstall satu per satu secara manual dan menjamin aplikasi berjalan dengan cara yang sama di semua komputer.
 Download di sini : https://www.docker.com/products/docker-desktop
@@ -20,7 +24,7 @@ Docker Compose adalah alat bantu Docker untuk menjalankan banyak container sekal
 Digunakan untuk mengunduh kode dari Github dan melakukan kolaborasi antar anggota tim dalam proyek. 
 Download di sini : https://git-scm.com/downloads
 
-#### Verifikasi Instalasi
+#### 🧪 Verifikasi Instalasi
 Untuk memastikan semuanya sudah terpasang dengan benar, jalankan perintah ini di terminal/command prompt :
 ```
 docker --version
@@ -29,44 +33,35 @@ git --version
 ```
 Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya. 
 
+## 🗃️ Langkah 2: Clone Repository Proyek
 
-## Langkah 1 : Persiapan Lingkungan Pengembangan
 
-## Langkah 2 : Menyiapkan Tools Manajemen Proyek
+### Struktur Proyek
+### Clone Repositori
+Clone kedua repositori proyek:
+```
+git clone https://github.com/milaaulia21/PBF_Backend.git
+git clone https://github.com/milaaulia21/PBF_Frontend.git
+```
+Keterangan:
 
-### Mengapa Perlu Tools Manajemen Proyek?
-Dalam pengelolaan proyek pengembangan aplikasi, salah satu tugas penting dalam peran DevOps & Deployment Engineer adalah memastikan semua proses berjalan secara terstruktur dan kolaboratif. Agar setiap proses seperti integrasi, deployment, dan konfigurasi dapat dipantau dengan jelas, dibutuhkan alat bantu manajemen proyek.
+- PBF_Backend adalah proyek backend berbasis CodeIgniter 4
 
-### Tools yang Digunakan : Trello
-Trello dipilih sebagai alat bantu utama untuk mengatur dan memantau setiap tugas tim.
-Trello adalah papan kerja visual (visual task board) yang memungkinkan setiap tugas direpresentasikan sebagai "kartu" yang bisa digeser ke berbagai tahap seperti : To Do, In Progress, dan Done.
+- PBF_Frontend adalah proyek frontend berbasis Laravel + React + Inertia.js
+- 
+## 🐳 Langkah 3: Menjalankan Proyek dengan Docker
 
-### Akses Trello Proyek
-https://trello.com/b/5SqLLO5S/kelompok-2
+Semua konfigurasi telah disiapkan dalam file docker-compose.yml. File ini bertugas untuk mengatur dan menjalankan semua container: frontend, backend, database, dan server.
 
-### Fungsi Trello untuk Koordinasi Proyek 
-Struktur tim dalam proyek ini terdiri dari empat peran utama : 
-1. Frontend Developer
-2. Backend Developer
-3. Database Engineer
-4. DevOps & Deployment Engineer
+### 📁 File Penting yang Sudah Disediakan:
+Dockerfile di dalam frontend/ dan backend/
 
-## Langkah 3 : Konfigurasi dan Manajemen Git
-### Tujuan Langkah ini 
-Langkah ini bertujuan untuk mengatur struktur proyek, mengelola versi kode dengan Git, dan menyiapkan otomatisasi pengambilan kode (clone) dari GitHub ke dalam container Docker. Semua ini dilakukan agar seluruh tim bisa bekerja secara terpusat dan efisien tanpa konfigurasi manual di tiap komputer. 
+nginx.conf di dalam nginx/
 
-### Manajemen Git 
-### Struktur Repository Proyek
-Dalam proyek ini, terdapat dua repository utama yang disimpan di GitHub :
-#### 1. Frontend (Laravel + React + Inertia.js)
-https://github.com/milaaulia21/PBF_Frontend
-#### 2. Backend (CodeIgniter 4)
-https://github.com/milaaulia21/PBF_Backend
+db_sidang.sql sebagai file inisialisasi database
 
-Masing-masing repository berdiri sendiri, namun saling terhubung melalui file docker-compose.yml yang digunakan untuk mengatur container aplikasi.
+.env masing-masing untuk backend dan frontend (harus dibuat sendiri)
 
-### Konfigurasi Git & GitHub
-Sebagian bagian dari manajemen proyek, setiap komponen (backend dan frontend) ditempatkan dalam repository GitHub yang terpisah, agar bisa dikelola dan dikembangkan secara modular oleh tim masing-masing.
 
 #### File .env
 File .env digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
