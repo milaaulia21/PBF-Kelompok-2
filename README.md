@@ -62,12 +62,13 @@ Semua konfigurasi telah disiapkan dalam file docker-compose.yml. File ini bertug
 
 - .env masing-masing untuk backend dan frontend 
 
-🚀 Jalankan Sistem
+### 🚀 Jalankan Sistem
+
 Setelah semua file siap dan struktur proyek lengkap:
 
-Buka terminal di folder root (tempat docker-compose.yml berada)
+1. Buka terminal di folder root (tempat docker-compose.yml berada)
 
-Jalankan perintah:
+2. Jalankan perintah:
 ```
 docker-compose up --build
 ```
@@ -81,101 +82,21 @@ Docker akan otomatis:
 
 - Mengarahkan semua request melalui NGINX
 
-📝 Catatan: Proses build pertama kali akan memakan waktu beberapa menit tergantung kecepatan koneksi dan komputer.
+### 📝 Catatan:
+Proses build pertama kali akan memakan waktu beberapa menit tergantung kecepatan koneksi dan komputer.
 
-#### File .env
-File .env digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
+## 🌐 Langkah 4: Akses Aplikasi
 
-#### Dockerfile 
-Dockerfile adalah kumpulan perintah yang memberi tahu Docker cara membangun sebuah image. Setelah dibuild, image itu bisa dipakai buat menjalankan container. 
+Jika semua container berhasil berjalan, buka browser dan akses:
 
-##### Dockerfile.frontend
-Untuk membangun container frontend (Laravel + React).
+## 📌 Tips Tambahan
+
+### 🔄 Menghentikan Aplikasi
+
+Gunakan CTRL + C di terminal, lalu jalankan:
 ```
-# Stage 1: Build React
-FROM node:18 as build
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
-# Stage 2: Laravel + PHP
-FROM php:8.2-fpm
-WORKDIR /var/www/html
-
-# Install system deps
-RUN apt-get update && apt-get install -y \
-    git curl libzip-dev zip unzip \
-    && docker-php-ext-install pdo pdo_mysql zip
-
-# Install Composer + Node
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs
-
-# Copy Laravel + built assets
-COPY . .
-COPY --from=build /app/public/build /var/www/html/public/build
-
-# Install dependencies
-RUN composer install && npm install && chown -R www-data:www-data storage bootstrap/cache
-
-# Run with concurrently (Dev)
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=9700"]
-
-
-##### Dockerfile.backend
-Untuk membangun container backend (CodeIgniter).
-
-FROM php:8.2-cli
-
-WORKDIR /var/www
-
-RUN apt-get update && apt-get install -y \
-    zip unzip git curl libpng-dev libjpeg-dev libfreetype6-dev libonig-dev libicu-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring gd intl
-
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-COPY . .
-
-RUN composer install --no-interaction --prefer-dist
-
-RUN chown -R www-data:www-data /var/www/writable
-
-EXPOSE 8080
-CMD ["php", "spark", "serve", "--host=0.0.0.0", "--port=8080"]
+docker compose down
 ```
 
-#### File nginx.conf
-File ini adalah konfigurasi utnuk Nginx, yaitu web server yang digunakan sebagai reverse proxy. Artinya, Nginx menerima permintaan dari browser, lalu meneruskannya ke container frontend atau backend sesuai alamat URL-nya.
-```
-worker_processes 1;
-
-events {
-    worker_connections 1024;
-}
-
-http {
-    server {
-        listen 80;
-
-        location /api {
-            proxy_pass http://backend:8080;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        }
-
-        location / {
-            proxy_pass http://frontend:9700;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        }
-    }
-}
-```
-
-
+### 💾 File .env
+File .env digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env tidak disimpan di GitHub karena berisi data sensitif (seperti kredensial database). File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
