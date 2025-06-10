@@ -8,16 +8,6 @@ Proyek ini berfokus pada penerapan prinsip DevOps dalam membangun Sistem Penjadw
 
 Dalam proyek ini, seluruh komponen sistem dikemas menggunakan Docker dan dikoordinasikan melalui Docker Compose, sehingga proses instalasi dan deployment dapat dilakukan secara otomatis dan konsisten, hanya dengan satu perintah: docker compose up.
 
-## Langkah 1 : Persiapan Lingkungan Pengembangan
-
-####
-Sebelum memulai membangun dan menjalankan sistem, hal yang paling awal yang perlu disiapkan adalah lingkungan pengembangan. 
-
-### Apa itu Lingkungan Pengembangan?
-
-####
-Lingkungan pengembangan adalah tempat (biasanya di komputer/laptop) di mana kita menyiapkan semua alat dan konfogurasi yang dibutuhkan agar proyek bisa dijalankan dengan benar.
-
 ### Tools yang Wajib Di-install:
 #### 1. Docker
 Docker adalah alat untuk membuat dan menjalankan aplikasi di dalam "wadah" (container). Dengan Docker, kita bisa menjalankan backend, frontend, dan database tanpa menginstall satu per satu secara manual dan menjamin aplikasi berjalan dengan cara yang sama di semua komputer.
@@ -38,6 +28,9 @@ docker-compose --version
 git --version
 ```
 Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya. 
+
+
+## Langkah 1 : Persiapan Lingkungan Pengembangan
 
 ## Langkah 2 : Menyiapkan Tools Manajemen Proyek
 
