@@ -110,6 +110,11 @@ Proses build pertama kali akan memakan waktu beberapa menit tergantung kecepatan
 ## 🌐 Langkah 4: Akses Aplikasi
 
 Jika semua container berhasil berjalan, buka browser dan akses:
+- Frontend: `http://localhost:9700`
+Menampilkan antarmuka pengguna (React + Laravel Inertia)
+
+- Backend API: `http://localhost:9000`
+Menyediakan endpoint API berbasis CodeIgniter 4
 
 ## 📌 Tips Tambahan
 
