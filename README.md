@@ -37,7 +37,7 @@ Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya.
 
 
 ### Struktur Proyek
-
+```
 .
 ├── backend/
 │   ├── Dockerfile
@@ -55,7 +55,7 @@ Jika versi masing-masing alat ditampilkan, maka siap lanjut ke tahap berikutnya.
 │
 ├── docker-compose.yml
 └── README.md
-
+```
 
 ### Clone Repositori
 Clone kedua repositori proyek:
