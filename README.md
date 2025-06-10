@@ -113,7 +113,7 @@ Jika semua container berhasil berjalan, buka browser dan akses:
 - Frontend: `http://localhost:9700`
 Menampilkan antarmuka pengguna (React + Laravel Inertia)
 
-- Backend API: `http://localhost:9000`
+- Backend API: `http://localhost:8080`
 Menyediakan endpoint API berbasis CodeIgniter 4
 
 ## 📌 Tips Tambahan
