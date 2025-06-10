@@ -53,22 +53,22 @@ Keterangan:
   
 ## 🐳 Langkah 3: Menjalankan Proyek dengan Docker
 
-Semua konfigurasi telah disiapkan dalam file docker-compose.yml. File ini bertugas untuk mengatur dan menjalankan semua container: frontend, backend, database, dan server.
+Semua konfigurasi telah disiapkan dalam file '''docker-compose.yml'''. File ini bertugas untuk mengatur dan menjalankan semua container: frontend, backend, database, dan server.
 
 ### 📁 File Penting yang Sudah Disediakan:
-- Dockerfile di dalam frontend/ dan backend/
+- '''Dockerfile''' di dalam '''frontend/''' dan '''backend/'''
 
-- nginx.conf di dalam nginx/
+- '''nginx.conf''' di dalam '''nginx/'''
 
-- db_sidang.sql sebagai file inisialisasi database
+- '''db_sidangskripsi.sql''' sebagai file inisialisasi database
 
-- .env masing-masing untuk backend dan frontend 
+- '''.env''' masing-masing untuk backend dan frontend 
 
 ### 🚀 Jalankan Sistem
 
 Setelah semua file siap dan struktur proyek lengkap:
 
-1. Buka terminal di folder root (tempat docker-compose.yml berada)
+1. Buka terminal di folder root (tempat '''docker-compose.yml''' berada)
 
 2. Jalankan perintah:
 ```
@@ -95,10 +95,10 @@ Jika semua container berhasil berjalan, buka browser dan akses:
 
 ### 🔄 Menghentikan Aplikasi
 
-Gunakan CTRL + C di terminal, lalu jalankan:
+Gunakan '''CTRL + C''' di terminal, lalu jalankan:
 ```
 docker compose down
 ```
 
-### 💾 File .env
-File .env digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env tidak disimpan di GitHub karena berisi data sensitif (seperti kredensial database). File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
+### 💾 File '''.env'''
+File '''.env''' digunakan untuk menyimpan variabel penting secara rahasia dan terpisah dari kode. File .env tidak disimpan di GitHub karena berisi data sensitif (seperti kredensial database). File .env di Laravel digunakan untuk menyimpan konfigurasi environment variables yang dibutuhkan oleh aplikasi agar bisa berjalan dengan benar di berbagai lingkungan (development, staging, production).
