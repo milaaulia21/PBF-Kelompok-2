@@ -53,7 +53,7 @@ Keterangan:
   
 ## 🐳 Langkah 3: Menjalankan Proyek dengan Docker
 
-Semua konfigurasi telah disiapkan dalam file '''docker-compose.yml'''. File ini bertugas untuk mengatur dan menjalankan semua container: frontend, backend, database, dan server.
+Semua konfigurasi telah disiapkan dalam file `docker-compose.yml`. File ini bertugas untuk mengatur dan menjalankan semua container: frontend, backend, database, dan server.
 
 ### 📁 File Penting yang Sudah Disediakan:
 - '''Dockerfile''' di dalam '''frontend/''' dan '''backend/'''
